@@ -45,7 +45,7 @@
                         <a href="#" type="button" class="btn btn-success btn-md text-white "><i
                                 class=" ti ti-file-spreadsheet"></i>
                             Export Excel</a>
-                        <a href="#" type="button" class="btn btn-info btn-md text-white "><i class=" ti ti-file-text"></i>
+                        <a href="#" type="button" class="btn btn-danger btn-md text-white "><i class=" ti ti-file-text"></i>
                             Export PDF</a>
                     </div>
                 </div>

@@ -46,7 +46,7 @@
                         <a href="#" type="button" class="btn btn-success btn-md text-white "><i
                                 class=" ti ti-file-spreadsheet"></i>
                             Export Excel</a>
-                        <a href="#" type="button" class="btn btn-info btn-md text-white "><i class=" ti ti-file-text"></i>
+                        <a href="#" type="button" class="btn btn-danger btn-md text-white "><i class=" ti ti-file-text"></i>
                             Export PDF</a>
                     </div>
                 </div>
@@ -67,7 +67,6 @@
                             <tr>
                                 <th>#</th>
                                 <th>Nama </th>
-                                <th>Tingkat</th>
                                 <th>Action</th>
                             </tr>
                             <!-- end row -->
@@ -78,10 +77,6 @@
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $data->nama }}</td>
-                                    <td>
-                                        <span class="badge bg-primary text-white">S1</span>
-                                        <span class="badge bg-success text-white">D3</span>
-                                    </td>
                                     <td>
                                         <form action="{{ route('admin.prodi.destroy', $data->id) }}" method="POST">
                                             <a type="button" class="btn btn-warning" data-bs-toggle="modal"

@@ -10,6 +10,7 @@ use App\Http\Controllers\ReviewerController;
 use App\Http\Controllers\ProdiController;
 use App\Http\Controllers\StatusController;
 use App\Http\Controllers\UniversitasController;
+use App\Http\Controllers\WilayahController;
 use App\Http\Middleware\role;
 use Illuminate\Support\Facades\Route;
 
@@ -25,19 +26,20 @@ Route::prefix('admin')->as('admin.')->middleware(['auth', role::class])->group(f
     Route::resource('reviewer', ReviewerController::class);
     Route::resource('prodi', ProdiController::class);
     Route::resource('universitas', UniversitasController::class);
-    Route::resource('peserta',ManagePeserta::class);
-    Route::resource('dokumen',DokumenController::class);
-    Route::resource('penilaian',PenilaianController::class);
+    Route::resource('peserta', ManagePeserta::class);
+    Route::resource('dokumen', DokumenController::class);
+    Route::resource('penilaian', PenilaianController::class);
 });
-
+// Get Kota
+Route::get('/get-kota/{id_provinsi}', [WilayahController::class, 'getKota']);
 // Route User
 Route::get('/', function () {
     return view('welcome');
 });
 Route::group([
     'middleware' => ['auth']
-], function(){
-    Route::resource('form-peserta',PesertaController::class);
-    Route::resource('form-pendaftaran',PendaftaranController::class);
-    Route::get('status',[StatusController::class,'index'])->name('user.status');
+], function () {
+    Route::resource('form-peserta', PesertaController::class);
+    Route::resource('form-pendaftaran', PendaftaranController::class);
+    Route::get('status', [StatusController::class, 'index'])->name('user.status');
 });

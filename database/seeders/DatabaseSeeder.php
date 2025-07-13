@@ -18,6 +18,8 @@ class DatabaseSeeder extends Seeder
         $this->call(RoleSeeder::class);
         $this->call(ProdiSeeder::class);
         $this->call(UniversitasSeeder::class);
+        $this->call(ProvinsiSeeder::class);
+        $this->call(KotaSeeder::class);
 
         User::factory()->create([
             'name' => 'Test User',

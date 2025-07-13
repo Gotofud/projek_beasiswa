@@ -1,6 +1,68 @@
 //
 // For select 2
 //
+$('#add').on('shown.bs.modal', function () {
+  $('.selectProdi').select2({
+    dropdownParent: $('#add'),
+    width: '100%'
+  });
+});
+
+$('#provinsi').on('change', function () {
+  var provinsiId = $(this).val();
+  $('#kota').prop('disabled', true).html('<option>Loading...</option>');
+
+  $.ajax({
+    url: '/get-kota/' + provinsiId,
+    type: 'GET',
+    success: function (data) {
+      $('#kota').empty().prop('disabled', false).append('<option selected disabled>Pilih Kota</option>');
+      $.each(data, function (key, value) {
+        $('#kota').append('<option value="' + value.id + '">' + value.kota + '</option>');
+      });
+    },
+    error: function () {
+      $('#kota').html('<option selected disabled>Gagal memuat kota</option>');
+    }
+  });
+});
+
+$(document).ready(function () {
+  // Saat user ganti provinsi (edit)
+  $(document).on('change', '.select-provinsi', function () {
+    let provinsiId = $(this).val();
+    let dataId = $(this).data('id');
+    let kotaSelect = $('#kota-' + dataId);
+
+    kotaSelect.prop('disabled', true).html('<option>Loading...</option>');
+
+    $.ajax({
+      url: '/get-kota/' + provinsiId,
+      type: 'GET',
+      success: function (data) {
+        kotaSelect.empty().prop('disabled', false).append('<option selected disabled>Pilih Kota</option>');
+        $.each(data, function (key, value) {
+          kotaSelect.append('<option value="' + value.id + '">' + value.kota + '</option>');
+        });
+      },
+      error: function () {
+        kotaSelect.html('<option selected disabled>Gagal memuat kota</option>');
+      }
+    });
+  });
+
+  // Saat modal edit dibuka, trigger 'change' untuk load kota otomatis
+  $('[id^=edit-]').on('shown.bs.modal', function () {
+    let modalId = $(this).attr('id').split('-')[1];
+    $('#provinsi-' + modalId).trigger('change');
+
+    // Tunggu load selesai baru set kota
+    setTimeout(() => {
+      $('#kota-' + modalId).val('{{ $data->kota }}');
+    }, 1000);
+  });
+});
+
 $(".select2").select2();
 
 // Single Select Placeholder

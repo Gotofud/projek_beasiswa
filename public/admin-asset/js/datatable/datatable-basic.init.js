@@ -1,6 +1,11 @@
 /****************************************
  *         Table Responsive             *
  ****************************************/
+let table = $('.dataTable').DataTable();
+$('#customSearch').on('keyup', function () {
+  table.search(this.value).draw();
+});
+
 $(function () {
   $("#config-table").DataTable({
     responsive: true,

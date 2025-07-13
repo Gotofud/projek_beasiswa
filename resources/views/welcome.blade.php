@@ -128,11 +128,11 @@
             <div class="row">
                 <div class="col-lg-6 col-md-12">
                     <div class="cyber-about-img text-center mb-30 mb-lg-0">
-                        <img src="user/img/about_cyber.jpg" alt="VR" class="img-fluid" />
+                        <img src="user/img/bg.png" alt="VR" class="img-fluid" />
                         <div class="row g-0">
                             <div class="col-lg-5">
                                 <div class="sheild-img">
-                                    <img src="user/img/about2.png" alt="Sheild" class="img-fluid d-none d-lg-block" />
+                                    <img src="user/img/bg.png" alt="Sheild" class="img-fluid d-none d-lg-block" />
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-12">

@@ -19,6 +19,8 @@
   <link rel="stylesheet" href="{{ asset('admin-asset/libs/owl.carousel/dist/admin-asset/owl.carousel.min.css') }}" />
   <!-- Data Table -->
   <link rel="stylesheet" href="{{ asset('admin-asset/libs/datatables.net-bs5/css/dataTables.bootstrap5.min.css') }}" />
+  <!-- Select2 -->
+  <link rel="stylesheet" href="{{ asset('admin-asset/libs/select2/dist/css/select2.min.css') }}">
 </head>
 
 <body>
@@ -70,15 +72,10 @@
     <script src="{{ asset('admin-asset/js/forms/sweet-alert.init.js') }}"></script>
     <script src="{{ asset('admin-asset/libs/datatables.net/js/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('admin-asset/js/datatable/datatable-basic.init.js') }}"></script>
-    <script>
-      $(document).ready(function () {
-        let table = $('.dataTable').DataTable();
-
-         $('#customSearch').on('keyup', function () {
-            table.search(this.value).draw();
-        });
-      });
-    </script>
+    <script src="{{ asset('admin-asset/libs/select2/dist/js/select2.full.min.js') }}"></script>
+    <script src="{{ asset('admin-asset/libs/select2/dist/js/select2.min.js') }}"></script>
+    <script src="{{ asset('admin-asset/js/forms/select2.init.js') }}"></script>
+  
     @stack('scripts')
 </body>
 

@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Kota;
 use App\Models\Prodi;
+use App\Models\Provinsi;
 use App\Models\Universitas;
 use Illuminate\Http\Request;
 
@@ -19,7 +21,9 @@ class UniversitasController extends Controller
 
         $uni = Universitas::all();
         $prodi = Prodi::all();
-        return view('admin.universitas.index', compact('uni', 'prodi'));
+        $provinsi = Provinsi::all();
+
+        return view('admin.universitas.index', compact('uni', 'prodi','provinsi'));
     }
 
     /**
@@ -36,13 +40,10 @@ class UniversitasController extends Controller
     public function store(Request $request)
     {
         $uni = new Universitas();
-        $lastRecord = Universitas::latest('id')->first();
-        $lastId = $lastRecord ? $lastRecord->id : 0;
-        $kode_prodi = 'PRDC-' . str_pad($lastId + 1, 4, '0', STR_PAD_LEFT);
         $uni->nama = $request->nama;
         $uni->kota = $request->kota;
         $uni->provinsi = $request->provinsi;
-        $uni->kode_prodi = $kode_prodi;
+        $uni->kode_prodi = $request->kode_prodi;
         $uni->prodi_id = $request->prodi_id;
         $uni->minimal_nilai_utbk = $request->minimal_nilai_utbk;
         $uni->minimal_nilai_snbp = $request->minimal_nilai_snbp;
