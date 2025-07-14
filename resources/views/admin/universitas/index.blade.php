@@ -45,7 +45,7 @@
                         <a href="#" type="button" class="btn btn-success btn-md text-white "><i
                                 class=" ti ti-file-spreadsheet"></i>
                             Export Excel</a>
-                        <a href="#" type="button" class="btn btn-danger btn-md text-white "><i class=" ti ti-file-text"></i>
+                        <a href="{{ route('admin.universitas.exportPDF') }}" type="button" class="btn btn-danger btn-md text-white "><i class=" ti ti-file-text"></i>
                             Export PDF</a>
                     </div>
                 </div>
@@ -82,8 +82,8 @@
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $data->nama }}</td>
-                                    <td>{{ $data->kota }}</td>
-                                    <td>{{ $data->provinsi }}</td>
+                                    <td>{{ $data->kota->kota }}</td>
+                                    <td>{{ $data->provinsi->provinsi }}</td>
                                     <td>{{ $data->prodi->nama }}</td>
                                     <td>{{ $data->kode_prodi }}</td>
                                     <td>{{ $data->minimal_nilai_utbk }}</td>

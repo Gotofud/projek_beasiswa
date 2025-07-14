@@ -13,8 +13,8 @@ return new class extends Migration {
         Schema::create('universitas', function (Blueprint $table) {
             $table->id();
             $table->string('nama');
-            $table->string('kota');
-            $table->string('provinsi');
+            $table->foreignId('kota_id')->constrained('kotas')->onDelete('cascade');
+            $table->foreignId('provinsi_id')->constrained('kotas')->onDelete('cascade');
             $table->foreignId('prodi_id')->constrained('prodis')->onDelete('cascade');
             $table->string('kode_prodi')->unique();
             $table->string('minimal_nilai_utbk');

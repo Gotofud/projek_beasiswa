@@ -23,6 +23,8 @@ class PesertaController extends Controller
         return view('user.form-peserta', compact('peserta'));
     }
 
+    
+
     /**
      * Show the form for creating a new resource.
      */

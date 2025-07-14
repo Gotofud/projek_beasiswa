@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Prodi;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade\Pdf;
+use Maatwebsite\Excel\Facades\Excel;
 
 class ProdiController extends Controller
 {
@@ -15,10 +17,25 @@ class ProdiController extends Controller
         if (auth()->user()->role !== 'admin') {
             abort(403);
         }
-        
+
         $prodi = Prodi::all();
         return view('admin.prodi.index', compact('prodi'));
     }
+
+        public function export()
+        {
+            return Excel::download(new ReviewerExport, 'Data-Reviewer.xlsx');
+        }
+
+        public function exportPDF()
+        {
+            $prodi = Prodi::all();
+
+            $pdf = Pdf::loadView('pdf.prodi', compact('prodi'));
+
+            return $pdf->download('Data-Prodi.pdf'); // Langsung download
+        }
+
 
     /**
      * Show the form for creating a new resource.
@@ -37,7 +54,7 @@ class ProdiController extends Controller
         $prodi->nama = $request->nama;
         $prodi->save();
 
-        return redirect()->route('admin.prodi.index')->with('success','Data Program Studi berhasil di tambahkan');
+        return redirect()->route('admin.prodi.index')->with('success', 'Data Program Studi berhasil di tambahkan');
     }
 
     /**
@@ -65,7 +82,7 @@ class ProdiController extends Controller
         $prodi->nama = $request->nama;
         $prodi->save();
 
-        return redirect()->route('admin.prodi.index')->with('success','Data Program studi berhasil di update');
+        return redirect()->route('admin.prodi.index')->with('success', 'Data Program studi berhasil di update');
     }
 
     /**
@@ -74,6 +91,6 @@ class ProdiController extends Controller
     public function destroy(Prodi $prodi)
     {
         $prodi->delete();
-        return redirect()->route('admin.prodi.index')->with('success','Data Program Studi berhasil di hapus');
+        return redirect()->route('admin.prodi.index')->with('success', 'Data Program Studi berhasil di hapus');
     }
 }

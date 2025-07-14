@@ -7,14 +7,14 @@
             <div class="card-body px-4 py-3">
                 <div class="row align-items-center">
                     <div class="col-9">
-                        <h4 class="fw-semibold mb-8">Manajemen Reviewer</h4>
+                        <h4 class="fw-semibold mb-8">Validasi Dokumen</h4>
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item">
                                     <a class="text-muted text-decoration-none"
                                         href="{{ route('admin.index') }}">Dashboard</a>
                                 </li>
-                                <li class="breadcrumb-item" aria-current="page">Manajemen Reviewer</li>
+                                <li class="breadcrumb-item" aria-current="page">Validasi Dokumen</li>
                             </ol>
                         </nav>
                     </div>
@@ -42,7 +42,7 @@
                         <a href="#" type="button" class="btn btn-success btn-md text-white "><i
                                 class=" ti ti-file-spreadsheet"></i>
                             Export Excel</a>
-                        <a href="#" type="button" class="btn btn-danger btn-md text-white "><i class=" ti ti-file-text"></i>
+                        <a href="{{ route('admin.dokumen.exportPDF') }}" type="button" class="btn btn-danger btn-md text-white "><i class=" ti ti-file-text"></i>
                             Export PDF</a>
                     </div>
                 </div>

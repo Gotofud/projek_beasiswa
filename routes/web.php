@@ -29,6 +29,25 @@ Route::prefix('admin')->as('admin.')->middleware(['auth', role::class])->group(f
     Route::resource('peserta', ManagePeserta::class);
     Route::resource('dokumen', DokumenController::class);
     Route::resource('penilaian', PenilaianController::class);
+    // Reviewer Export
+    Route::get('/reviewer-export', [ReviewerController::class, 'export'])->name('reviewer.export');
+    Route::get('/reviewer-exportPDF', [ReviewerController::class, 'exportPDF'])->name('reviewer.exportPDF');
+    // Prodi Export
+    Route::get('/prodi-export', [ProdiController::class, 'export'])->name('prodi.export');
+    Route::get('/prodi-exportPDF', [ProdiController::class, 'exportPDF'])->name('prodi.exportPDF');
+    // Universitas Export
+    Route::get('/universitas-export', [UniversitasController::class, 'export'])->name('universitas.export');
+    Route::get('/universitas-exportPDF', [UniversitasController::class, 'exportPDF'])->name('universitas.exportPDF');
+    // Peserta Export
+    Route::get('/peserta-export', [ManagePeserta::class, 'export'])->name('peserta.export');
+    Route::get('/peserta-exportPDF', [ManagePeserta::class, 'exportPDF'])->name('peserta.exportPDF');
+    Route::get('/biodata-exportPDF', [ManagePeserta::class, 'biodataPDF'])->name('peserta.biodataPDF');
+    // Validasi Dokumen Export
+    Route::get('/dokumen-export', [DokumenController::class, 'export'])->name('dokumen.export');
+    Route::get('/dokumen-exportPDF', [DokumenController::class, 'exportPDF'])->name('dokumen.exportPDF');
+    // Penilaian Export
+    Route::get('/penilaian-export', [PenilaianController::class, 'export'])->name('penilaian.export');
+    Route::get('/penilaian-exportPDF', [PenilaianController::class, 'exportPDF'])->name('penilaian.exportPDF');
 });
 // Get Kota
 Route::get('/get-kota/{id_provinsi}', [WilayahController::class, 'getKota']);
@@ -42,4 +61,5 @@ Route::group([
     Route::resource('form-peserta', PesertaController::class);
     Route::resource('form-pendaftaran', PendaftaranController::class);
     Route::get('status', [StatusController::class, 'index'])->name('user.status');
+    Route::get('/status-exportPDF', [StatusController::class, 'exportPDF'])->name('status.exportPDF');
 });

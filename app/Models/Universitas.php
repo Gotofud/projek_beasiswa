@@ -9,8 +9,8 @@ class Universitas extends Model
 {
     protected $fillable = [
         'ptn',
-        'kota',
-        'provinsi',
+        'kota_id',
+        'provinsi_id',
         'prodi_id',
         'kode_prodi',
         'minimal_nilai_utbk',
@@ -25,5 +25,14 @@ class Universitas extends Model
     public function ptn()
     {
         return $this->hasOne(Universitas::class);
+    }
+
+     public function provinsi()
+    {
+    	return $this->BelongsTo(Provinsi::class,'provinsi_id');
+    }
+     public function kota()
+    {
+    	return $this->BelongsTo(Kota::class,'kota_id');
     }
 }

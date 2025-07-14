@@ -43,10 +43,10 @@
                     <div class="action">
                         <a type="button" class="btn btn-primary btn-md text-white" data-bs-toggle="modal"
                             data-bs-target="#add"><i class=" ti ti-folder-plus"></i></a>
-                        <a href="#" type="button" class="btn btn-success btn-md text-white "><i
+                        <a href="{{ route('admin.reviewer.export') }}" type="button" class="btn btn-success btn-md text-white "><i
                                 class=" ti ti-file-spreadsheet"></i>
                             Export Excel</a>
-                        <a href="#" type="button" class="btn btn-danger btn-md text-white "><i class=" ti ti-file-text"></i>
+                        <a href="{{ route('admin.reviewer.exportPDF') }}" type="button" class="btn btn-danger btn-md text-white "><i class=" ti ti-file-text"></i>
                             Export PDF</a>
                     </div>
                 </div>

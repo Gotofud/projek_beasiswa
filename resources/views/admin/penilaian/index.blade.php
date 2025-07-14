@@ -10,14 +10,14 @@
         <div class="card-body px-4 py-3">
             <div class="row align-items-center">
                 <div class="col-9">
-                    <h4 class="fw-semibold mb-8">Manajemen Reviewer</h4>
+                    <h4 class="fw-semibold mb-8">Penilaian Hasil Ujian</h4>
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item">
                                 <a class="text-muted text-decoration-none"
                                     href="{{ route('admin.index') }}">Dashboard</a>
                             </li>
-                            <li class="breadcrumb-item" aria-current="page">Manajemen Reviewer</li>
+                            <li class="breadcrumb-item" aria-current="page">Penilaian Hasil Ujian</li>
                         </ol>
                     </nav>
                 </div>
@@ -44,10 +44,12 @@
                 </div>
 
                 <div class="action">
+                    <a type="button" class="btn btn-primary btn-md text-white" data-bs-toggle="modal"
+                        data-bs-target="#add"><i class=" ti ti-folder-plus"></i></a>
                     <a href="#" type="button" class="btn btn-success btn-md text-white "><i
                             class=" ti ti-file-spreadsheet"></i>
                         Export Excel</a>
-                    <a href="#" type="button" class="btn btn-danger btn-md text-white "><i class=" ti ti-file-text"></i>
+                    <a href="{{ route('admin.penilaian.exportPDF') }}" type="button" class="btn btn-danger btn-md text-white "><i class=" ti ti-file-text"></i>
                         Export PDF</a>
                 </div>
             </div>
@@ -115,7 +117,7 @@
                     </tbody>
                 </table>
             </div>
-            
+
             <!-- end Zero Configuration -->
         </div>
     </div>

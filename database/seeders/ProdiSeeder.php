@@ -48,7 +48,9 @@ class ProdiSeeder extends Seeder
             'Akutansi',
             'Sistem Informasi',
             'Perikanan',
-            'Kehutanan'
+            'Kehutanan',
+            'Pendidikan Fisika',
+            'Pendidikan Jasmani'
         ];
 
         foreach ($prodi as $namaProdi) {

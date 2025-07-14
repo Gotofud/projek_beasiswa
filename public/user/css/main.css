@@ -9997,7 +9997,7 @@ i[class*=" flaticon-"]:before {
     --bs-gray-700: #404040;
     --bs-gray-800: #262626;
     --bs-gray-900: #171717;
-    --bs-primary: #175cff;
+    --bs-primary: #103551;
     --bs-accent: #168323;
     --bs-secondary: #e5e5e5;
     --bs-success: #74B51B;
@@ -10118,7 +10118,7 @@ i[class*=" flaticon-"]:before {
     --bs-danger-text: #ea868f;
     --bs-light-text: #f5f5f5;
     --bs-dark-text: #d4d4d4;
-    --bs-primary-bg-subtle: #031633;
+    --bs-primary-bg-subtle: #103551;
     --bs-secondary-bg-subtle: #171717;
     --bs-success-bg-subtle: #051b11;
     --bs-info-bg-subtle: #032830;
@@ -18601,7 +18601,7 @@ fieldset:disabled .btn {
 
 .text-bg-primary {
     color: #fff !important;
-    background-color: RGBA(23, 92, 255, var(--bs-bg-opacity, 1)) !important
+    background-color: #103551
 }
 
 .text-bg-accent {
@@ -20759,7 +20759,7 @@ fieldset:disabled .btn {
 
 .bg-primary {
     --bs-bg-opacity: 1;
-    background-color: rgba(var(--bs-primary-rgb), var(--bs-bg-opacity)) !important
+    background-color: #103551;
 }
 
 .bg-accent {
@@ -30035,7 +30035,7 @@ dd {
 }
 
 .bg-primary {
-    background-color: #175cff !important
+    background-color: #103551;
 }
 
 .bg-primary-dark {

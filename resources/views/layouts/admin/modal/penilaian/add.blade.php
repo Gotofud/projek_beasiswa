@@ -3,7 +3,7 @@
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="staticBackdropLabel"><i class="ti ti-users"></i> Tambah Reviewer</h1>
+                <h1 class="modal-title fs-5" id="staticBackdropLabel"><i class="ti ti-users"></i> Penilaian</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -11,8 +11,7 @@
                 <form action="{{ route('admin.penilaian.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="input-group mb-3">
-                        <span class="input-group-text" id="basic-addon1"><i class="ti ti-user"></i></span>
-                        <select name="id_pendaftaran" class="form-control select2">
+                        <select name="id_pendaftaran" class="form-control selectProdi">
                             <option selected disabled>Pilih Pendaftar</option>
                             @foreach ($penilaian as $data)
                             @if ($data->status == 'diterima')

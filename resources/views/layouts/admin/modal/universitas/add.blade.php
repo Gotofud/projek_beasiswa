@@ -22,7 +22,7 @@
                     <div class="row">
                         <div class="col-md-6 mb-3">
                             <label for="provinsi" class="form-label">Provinsi</label>
-                            <select class="form-select selectProdi" id="provinsi" name="provinsi">
+                            <select class="form-select selectProdi" id="provinsi" name="provinsi_id">
                                 <option selected disabled>Pilih Provinsi</option>
                                 @foreach($provinsi as $dataProv)
                                     <option value="{{ $dataProv->id }}">{{ $dataProv->provinsi }}</option>
@@ -32,7 +32,7 @@
 
                         <div class="col-md-6 mb-3">
                             <label for="kota" class="form-label">Kota</label>
-                            <select class="form-select selectProdi" id="kota" name="kota" disabled>
+                            <select class="form-select selectProdi" id="kota" name="kota_id" disabled>
                                 <option selected disabled>Pilih Kota</option>
                             </select>
                         </div>

@@ -27,7 +27,7 @@
                                 data-id="{{ $data->id }}" name="provinsi">
                                 <option disabled {{ $data->provinsi ? '' : 'selected' }}>Pilih Provinsi</option>
                                 @foreach($provinsi as $dataProv)
-                                    <option value="{{ $dataProv->id }}" {{ $dataProv->id == $data->provinsi ? 'selected' : '' }}>
+                                    <option value="{{ $dataProv->id }}" {{ $dataProv->id == $data->provinsi->id ? 'selected' : '' }}>
                                         {{ $dataProv->provinsi }}
                                     </option>
                                 @endforeach

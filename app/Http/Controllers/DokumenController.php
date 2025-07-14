@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Pendaftaran;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade\Pdf;
+use Maatwebsite\Excel\Facades\Excel;
 
 class DokumenController extends Controller
 {
@@ -12,8 +14,22 @@ class DokumenController extends Controller
      */
     public function index()
     {
-        $dokumen = Pendaftaran::with('peserta')->where('status','diproses')->get();
-        return view('admin.dokumen.index',compact('dokumen'));
+        $dokumen = Pendaftaran::with('peserta')->where('status', 'diproses')->get();
+        return view('admin.dokumen.index', compact('dokumen'));
+    }
+
+    public function export()
+    {
+        return Excel::download(new ReviewerExport, 'Data-Reviewer.xlsx');
+    }
+
+    public function exportPDF()
+    {
+        $dokumen = Pendaftaran::all();
+
+        $pdf = Pdf::loadView('pdf.dokumen', compact('dokumen'));
+
+        return $pdf->download('Data-Validasi-dokumen.pdf'); // Langsung download
     }
 
     /**
@@ -38,7 +54,7 @@ class DokumenController extends Controller
     public function show(string $id)
     {
         $dokumen = Pendaftaran::findOrFail($id);
-        return view('admin.dokumen.dokumen',compact('dokumen'));
+        return view('admin.dokumen.dokumen', compact('dokumen'));
     }
 
     /**
@@ -57,7 +73,7 @@ class DokumenController extends Controller
         $dokumen = Pendaftaran::findOrFail($id);
         $dokumen->status = $request->status;
         $dokumen->save();
-         return redirect()->route('admin.dokumen.index')->with('success','Status Berhasil Di Update');
+        return redirect()->route('admin.dokumen.index')->with('success', 'Status Berhasil Di Update');
     }
 
     /**
@@ -66,6 +82,6 @@ class DokumenController extends Controller
     public function destroy(string $id)
     {
         $dokumen = Pendaftaran::findOrFail($id);
-        return redirect()->route('admin.dokumen.index')->with('success','Data Berhasil di hapus');
+        return redirect()->route('admin.dokumen.index')->with('success', 'Data Berhasil di hapus');
     }
 }

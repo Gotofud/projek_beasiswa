@@ -22,7 +22,13 @@ class RoleSeeder extends Seeder
 
         User::create([
             'name' => 'Fazli Rausyan Fikri',
-            'email' => 'alsptr@gmail.com',
+            'email' => 'timlaskar@reviewer.org',
+            'role' => 'reviewer',
+            'password' => bcrypt('12345678'),
+        ]);
+        User::create([
+            'name' => 'Sulis Alisa Putri',
+            'email' => 'timlaskar2@reviewer.org',
             'role' => 'reviewer',
             'password' => bcrypt('12345678'),
         ]);

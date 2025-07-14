@@ -2,7 +2,7 @@
     <nav class="navbar navbar-expand-xl navbar-light sticky-header">
         <div class="container d-flex align-items-center justify-content-lg-between position-relative">
             <a href="index.html" class="navbar-brand d-flex align-items-center mb-md-0 text-decoration-none">
-                <img src="user/img/logo-color.png" alt="logo" class="img-fluid logo-color" />
+                <img src="{{ asset('user/img/logo-color.png') }}" alt="logo" class="img-fluid logo-color" />
             </a>
 
             <a class="navbar-toggler position-absolute right-0 border-0" href="#offcanvasWithBackdrop" role="button">
@@ -22,44 +22,48 @@
 
             <div class="action-btns text-end me-5 me-lg-0 d-none d-md-block d-lg-block">
                 @guest
-                    <a href="{{route('login')}}" class="btn btn-link text-decoration-none me-2">Sign In</a>
+                    <a href="{{ route('login') }}" class="btn btn-link text-decoration-none me-2">Sign In</a>
                     <a href="{{ route('register') }}" class="ins-btn ins-primary-btn">Get Started</a>
                 @else
                     <div class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                            aria-expanded="false"><img src="{{ asset('admin-asset/images/profile/user-1.jpg') }}"
-                                class="rounded-circle" width="35" height="35" alt="modernize-img" /></a>
-                        <div class="d-flex align-items-center">
-                        </div>
+                            aria-expanded="false">
+                            <img src="{{ asset('admin-asset/images/profile/user-1.jpg') }}" class="rounded-circle"
+                                width="35" height="35" alt="User Image" />
                         </a>
-                        <div class="dropdown-menu content-dd dropdown-menu-end dropdown-menu-animate-up"
-                            aria-labelledby="drop1">
-                            <div class="profile-dropdown position-relative" data-simplebar>
-                                <div class="d-flex align-items-center py-9 mx-7 border-bottom">
-                                    <div class="ms-3 text-center">
-                                        <img src="{{ asset('admin/images/profile/user-1.jpg') }}" class="rounded-circle"
-                                            width="80" height="80" alt="modernize-img" />
-                                        <p class="mb-1 fs-3">{{ Auth::user()->name }}</p>
-                                        <p class="mb-0 d-flex align-items-center gap-2">
-                                            <i class="ti ti-mail fs-4"></i> {{ Auth::user()->email }}
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="d-grid py-4 px-7 pt-8">
-                                    <a class="btn btn-outline-primary" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                                 document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
+                        <div class="dropdown-menu dropdown-menu-end shadow-sm border-0 p-0"
+                            style="min-width: 250px; border-radius: 12px;">
+                            <div class="text-center p-4 border-bottom">
+                                <img src="{{ asset('admin-asset/images/profile/user-1.jpg') }}" class="rounded-circle mb-2"
+                                    width="80" height="80" alt="User Image" />
+                                <h6 class="mb-0">{{ Auth::user()->name }}</h6>
+                                <small class="text-muted text-wrap d-block" style="word-break: break-all;">
+                                    {{ Auth::user()->email }}
+                                </small>
+                            </div>
 
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
-                                </div>
+                            {{-- Menu Profil --}}
+                            <div class="px-3 py-2">
+                                <a href="#" class="dropdown-item text-dark d-flex align-items-center">
+                                    Profil
+                                </a>
+                            </div>
+                            {{-- Tombol Logout --}}
+                            <div class="px-3 pb-3">
+                                <a class="btn btn-outline-primary w-100" href="{{ route('logout') }}"
+                                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                    {{ __('Logout') }}
+                                </a>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
+                                </form>
                             </div>
                         </div>
                     </div>
                 @endguest
             </div>
+
+
         </div>
     </nav>
     <!--offcanvas menu end-->

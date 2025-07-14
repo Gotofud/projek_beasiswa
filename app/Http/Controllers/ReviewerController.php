@@ -4,7 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Exports\ReviewerExport;
 use Illuminate\Validation\Rule;
+use Barryvdh\DomPDF\Facade\Pdf;
+use Maatwebsite\Excel\Facades\Excel;
 
 class ReviewerController extends Controller
 {
@@ -28,6 +31,19 @@ class ReviewerController extends Controller
     {
         //
     }
+    public function export()
+    {
+        return Excel::download(new ReviewerExport, 'Data-Reviewer.xlsx');
+    }
+
+    public function exportPDF()
+    {
+        $reviewer = User::where('role', 'reviewer')->get();
+
+        $pdf = Pdf::loadView('pdf.reviewer', compact('reviewer'));
+
+        return $pdf->download('Data-Reviewer.pdf'); // Langsung download
+    }
 
     /**
      * Store a newly created resource in storage.
@@ -40,7 +56,7 @@ class ReviewerController extends Controller
         $user->password = bcrypt($request->password);
         $user->role = 'reviewer';
         $user->save();
-        return redirect()->route('admin.reviewer.index')->with('success','Data Reviewer berhasil di tambahkan');
+        return redirect()->route('admin.reviewer.index')->with('success', 'Data Reviewer berhasil di tambahkan');
     }
 
     /**
@@ -94,6 +110,6 @@ class ReviewerController extends Controller
     {
         $user = User::findOrFail($id);
         $user->delete();
-        return redirect()->route('admin.reviewer.index')->with('success','Data Reviewer berhasil di hapus');
+        return redirect()->route('admin.reviewer.index')->with('success', 'Data Reviewer berhasil di hapus');
     }
 }

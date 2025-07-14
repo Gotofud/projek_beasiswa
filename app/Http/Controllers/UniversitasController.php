@@ -7,6 +7,8 @@ use App\Models\Prodi;
 use App\Models\Provinsi;
 use App\Models\Universitas;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade\Pdf;
+use Maatwebsite\Excel\Facades\Excel;
 
 class UniversitasController extends Controller
 {
@@ -22,9 +24,25 @@ class UniversitasController extends Controller
         $uni = Universitas::all();
         $prodi = Prodi::all();
         $provinsi = Provinsi::all();
+        $kota = Kota::all();
 
-        return view('admin.universitas.index', compact('uni', 'prodi','provinsi'));
+        return view('admin.universitas.index', compact('uni', 'prodi', 'provinsi', 'kota'));
     }
+
+    public function export()
+    {
+        return Excel::download(new ReviewerExport, 'Data-Reviewer.xlsx');
+    }
+
+    public function exportPDF()
+    {
+        $uni = Universitas::all();
+
+        $pdf = Pdf::loadView('pdf.Universitas', compact('uni'));
+
+        return $pdf->download('Data-Univ.pdf'); // Langsung download
+    }
+
 
     /**
      * Show the form for creating a new resource.
@@ -41,15 +59,15 @@ class UniversitasController extends Controller
     {
         $uni = new Universitas();
         $uni->nama = $request->nama;
-        $uni->kota = $request->kota;
-        $uni->provinsi = $request->provinsi;
+        $uni->kota_id = $request->kota_id;
+        $uni->provinsi_id = $request->provinsi_id;
         $uni->kode_prodi = $request->kode_prodi;
         $uni->prodi_id = $request->prodi_id;
         $uni->minimal_nilai_utbk = $request->minimal_nilai_utbk;
         $uni->minimal_nilai_snbp = $request->minimal_nilai_snbp;
         $uni->save();
 
-        return redirect()->route('admin.universitas.index')->with('success','Data Universitas berhasil di tambahkan');
+        return redirect()->route('admin.universitas.index')->with('success', 'Data Universitas berhasil di tambahkan');
     }
 
     /**
@@ -92,7 +110,7 @@ class UniversitasController extends Controller
         $uni->minimal_nilai_snbp = $request->minimal_nilai_snbp;
         $uni->save();
 
-        return redirect()->route('admin.universitas.index')->with('success','Data Universitas berhasil di update');
+        return redirect()->route('admin.universitas.index')->with('success', 'Data Universitas berhasil di update');
 
     }
 
@@ -102,6 +120,6 @@ class UniversitasController extends Controller
     public function destroy(Universitas $universitas)
     {
         $universitas->delete();
-        return redirect()->route('admin.universitas.index')->with('success','Data Universitas berhasil di hapus');
+        return redirect()->route('admin.universitas.index')->with('success', 'Data Universitas berhasil di hapus');
     }
 }

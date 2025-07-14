@@ -6,6 +6,8 @@ use App\Models\Peserta;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
+use Barryvdh\DomPDF\Facade\Pdf;
+use Maatwebsite\Excel\Facades\Excel;
 
 class ManagePeserta extends Controller
 {
@@ -16,6 +18,29 @@ class ManagePeserta extends Controller
     {
         $peserta = Peserta::with('user')->get();
         return view('admin.peserta.index', compact('peserta'));
+    }
+
+    public function export()
+    {
+        return Excel::download(new ReviewerExport, 'Data-Reviewer.xlsx');
+    }
+
+    public function exportPDF()
+    {
+        $peserta = Peserta::with('user')->get();
+
+        $pdf = Pdf::loadView('pdf.peserta', compact('peserta'));
+
+        return $pdf->download('Data-peserta.pdf'); // Langsung download
+    }
+
+    public function biodataPDF()
+    {
+        $peserta = Peserta::with('user')->first();
+
+        $pdf = Pdf::loadView('pdf.biodata', compact('peserta'));
+
+        return $pdf->download('Biodata-Peserta.pdf'); // Langsung download
     }
 
     /**
@@ -85,6 +110,6 @@ class ManagePeserta extends Controller
     {
         $user = User::findOrFail($id);
         $user->delete();
-        return redirect()->route('admin.peserta.index')->with('success','Data User berhasil di hapus');
+        return redirect()->route('admin.peserta.index')->with('success', 'Data User berhasil di hapus');
     }
 }

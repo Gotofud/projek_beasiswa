@@ -5,19 +5,38 @@ namespace App\Http\Controllers;
 use App\Models\Pendaftaran;
 use App\Models\Seleksi;
 use App\Models\Universitas;
+use App\Models\Peserta;
 use Illuminate\Http\Request;
 use Auth;
+use Barryvdh\DomPDF\Facade\Pdf;
+use Maatwebsite\Excel\Facades\Excel;
 
 class PenilaianController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
+
     public function index()
     {
         $penilaian = Pendaftaran::where('status', 'diterima')->get();
         $hasil = Seleksi::all();
-        return view('admin.penilaian.index', compact('penilaian','hasil'));
+        return view('admin.penilaian.index', compact('penilaian', 'hasil'));
+    }
+
+    public function export()
+    {
+        return Excel::download(new ReviewerExport, 'Data-Reviewer.xlsx');
+    }
+
+    public function exportPDF()
+    {
+        $penilaian = Pendaftaran::where('status', 'diterima')->get();
+        $hasil = Seleksi::all();
+
+        $pdf = Pdf::loadView('pdf.penilaian', compact('hasil', 'penilaian'));
+
+        return $pdf->download('Data-penilaian.pdf'); // Langsung download
     }
 
     /**
@@ -60,7 +79,7 @@ class PenilaianController extends Controller
         $penilaian->nilai_total = $request->nilai_total;
         $penilaian->status_kelulusan = $status;
         $penilaian->save();
-        return redirect()->route('admin.penilaian.index')->with('success','Berhasil Melakukan Seleksi');
+        return redirect()->route('admin.penilaian.index')->with('success', 'Berhasil Melakukan Seleksi');
 
     }
 
