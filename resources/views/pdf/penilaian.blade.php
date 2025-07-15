@@ -21,6 +21,7 @@
 
         .logo {
             width: 80px;
+            margin: 5px;
             margin-bottom: 5px;
         }
 
@@ -80,6 +81,7 @@
 <body>
     <div class="header">
         <img src="{{ public_path('user/img/logo-color.png') }}" alt="Logo" class="logo">
+        <img src="{{ public_path('user/img/kampus.png') }}" alt="Logo" class="logo">
         <h1 class="report-title">Hasil Penilaian Report</h1>
     </div>
 

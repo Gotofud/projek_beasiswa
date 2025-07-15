@@ -239,6 +239,17 @@
                                             </div>
                                         </div>
                                     </div>
+                                @elseif ($pendaftaran->status == "diterima")
+                                    <div class="alert alert-success border-0 shadow-sm mb-4" role="alert">
+                                        <div class="d-flex align-items-center">
+                                            <div>
+                                                <h5 class="alert-heading mb-1">
+                                                    <i class="fas fa-graduation-cap me-2"></i>  DOKUMEN DITERIMA
+                                                </h5>
+                                                <p class="mb-0">Selamat Melaksanakan Ujian</p>
+                                            </div>
+                                        </div>
+                                    </div>
                                 @elseif ($pendaftaran->status == "ditolak")
                                     <div class="alert alert-danger border-0 shadow-sm mb-4" role="alert">
                                         <div class="d-flex align-items-center">

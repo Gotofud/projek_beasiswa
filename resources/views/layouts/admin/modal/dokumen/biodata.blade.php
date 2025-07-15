@@ -1,6 +1,6 @@
 <div class="modal fade" id="biodata-{{ $data->id }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
     aria-labelledby="biodataLabel-{{ $data->id }}" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-lg"> 
+    <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="biodataLabel-{{ $data->id }}">
@@ -9,7 +9,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
             </div>
             <div class="modal-body">
-                <div class="row g-3"> 
+                <div class="row g-3">
                     <div class="col-md-6">
                         <label class="form-label fw-bold">Nama</label>
                         <input type="text" class="form-control" value="{{ $data->peserta->nama_lengkap }}" disabled>
@@ -55,6 +55,11 @@
                         <input type="text" class="form-control" value="{{ $data->peserta->tahun_lulus }}" disabled>
                     </div>
                 </div>
+            </div>
+            <div class="modal-footer">
+                <a href="{{ route('admin.peserta.biodataPDF', $data->id) }}" type="button"
+                    class="btn btn-danger btn-md text-white "><i class=" ti ti-file-text"></i>
+                    Export PDF</a>
             </div>
         </div>
     </div>

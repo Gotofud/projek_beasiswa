@@ -19,7 +19,9 @@ class PenilaianController extends Controller
 
     public function index()
     {
-        $penilaian = Pendaftaran::where('status', 'diterima')->get();
+        $penilaian = Pendaftaran::where('status', 'diterima')
+        ->whereDoesntHave('seleksi')
+        ->get();
         $hasil = Seleksi::all();
         return view('admin.penilaian.index', compact('penilaian', 'hasil'));
     }
@@ -78,6 +80,7 @@ class PenilaianController extends Controller
         $penilaian->id_pendaftaran = $request->id_pendaftaran;
         $penilaian->nilai_total = $request->nilai_total;
         $penilaian->status_kelulusan = $status;
+        $penilaian->tanggal_penilaian = now();
         $penilaian->save();
         return redirect()->route('admin.penilaian.index')->with('success', 'Berhasil Melakukan Seleksi');
 

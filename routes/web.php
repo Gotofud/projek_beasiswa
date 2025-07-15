@@ -21,7 +21,7 @@ Auth::routes();
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 // Route Admin/Reviewer 
-Route::prefix('admin')->as('admin.')->middleware(['auth', role::class])->group(function () {
+Route::prefix('dashboard')->as('admin.')->middleware(['auth', role::class])->group(function () {
     Route::get('/', [DashboardController::class, 'index'])->name('index');
     Route::resource('reviewer', ReviewerController::class);
     Route::resource('prodi', ProdiController::class);
@@ -41,7 +41,7 @@ Route::prefix('admin')->as('admin.')->middleware(['auth', role::class])->group(f
     // Peserta Export
     Route::get('/peserta-export', [ManagePeserta::class, 'export'])->name('peserta.export');
     Route::get('/peserta-exportPDF', [ManagePeserta::class, 'exportPDF'])->name('peserta.exportPDF');
-    Route::get('/biodata-exportPDF', [ManagePeserta::class, 'biodataPDF'])->name('peserta.biodataPDF');
+    Route::get('/biodata/{id}/export', [ManagePeserta::class, 'biodataPDF'])->name('peserta.biodataPDF');
     // Validasi Dokumen Export
     Route::get('/dokumen-export', [DokumenController::class, 'export'])->name('dokumen.export');
     Route::get('/dokumen-exportPDF', [DokumenController::class, 'exportPDF'])->name('dokumen.exportPDF');

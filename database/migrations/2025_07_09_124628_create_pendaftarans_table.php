@@ -22,7 +22,7 @@ return new class extends Migration {
             $table->string('dokumen_prestasi')->nullable();
             $table->enum('status', ['diproses', 'ditolak', 'diterima'])->default('diproses');
             $table->date('tanggal_daftar');
-            $table->foreignId('reviewer')->constrained('users')->onDelete('cascade')->nullable();
+            $table->foreignId('reviewer')->nullable()->constrained('users')->onDelete('cascade');
             $table->timestamps();
         });
     }

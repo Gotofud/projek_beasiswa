@@ -17,7 +17,6 @@ class Seleksi extends Model
         'reviewer',
     ];
 
-    
 
     public function user()
     {

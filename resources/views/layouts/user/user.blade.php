@@ -50,11 +50,11 @@
     <!-- Font -->
 
     <!--build:css-->
-    <link rel="stylesheet" href="user/css/main.css">
+    <link rel="stylesheet" href="{{ asset('user/css/main.css') }}">
     <!-- endbuild -->
 
     <!--custom css start-->
-    <link rel="stylesheet" href="user/css/custom.css">
+    <link rel="stylesheet" href="{{ asset('user/css/custom.css') }}">
     <!--custom css end-->
 
 </head>

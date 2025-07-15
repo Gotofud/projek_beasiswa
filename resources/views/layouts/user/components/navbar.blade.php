@@ -1,7 +1,7 @@
 <header class="ins-header main-header w-100 z-10">
     <nav class="navbar navbar-expand-xl navbar-light sticky-header">
         <div class="container d-flex align-items-center justify-content-lg-between position-relative">
-            <a href="index.html" class="navbar-brand d-flex align-items-center mb-md-0 text-decoration-none">
+            <a href="{{ url('/') }}" class="navbar-brand d-flex align-items-center mb-md-0 text-decoration-none">
                 <img src="{{ asset('user/img/logo-color.png') }}" alt="logo" class="img-fluid logo-color" />
             </a>
 
@@ -12,11 +12,11 @@
             <div class="clearfix"></div>
             <div class="collapse navbar-collapse justify-content-center">
                 <ul class="nav col-12 col-md-auto justify-content-center main-menu">
-                    <li><a href="services.html" class="nav-link">Beranda</a></li>
-                    <li><a href="services.html" class="nav-link">Tentang Laskar</a></li>
-                    <li><a href="services.html" class="nav-link">Benefit</a></li>
-                    <li><a href="services.html" class="nav-link">Daftar Beasiswa</a></li>
-                    <li><a href="services.html" class="nav-link">Faq</a></li>
+                    <li><a href="{{ url('/') }}" class="nav-link">Beranda</a></li>
+                    <li><a href="#tentang" class="nav-link">Tentang Laskar</a></li>
+                    <li><a href="#benefit" class="nav-link">Benefit</a></li>
+                    <li><a href="#daftar" class="nav-link">Daftar Beasiswa</a></li>
+                    <li><a href="#faq" class="nav-link">Faq</a></li>
                 </ul>
             </div>
 

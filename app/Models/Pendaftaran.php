@@ -35,4 +35,11 @@ class Pendaftaran extends Model
     {
         return $this->belongsTo(Universitas::class, 'ptn_dan_prodi');
     }
+
+    public function seleksi()
+    {
+        return $this->hasOne(Seleksi::class, 'id_pendaftaran');
+    }
+
+
 }

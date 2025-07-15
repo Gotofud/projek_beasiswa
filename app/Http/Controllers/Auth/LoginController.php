@@ -32,7 +32,7 @@ class LoginController extends Controller
         $user = Auth::user();
 
         if (in_array($user->role, ['admin', 'reviewer'])) {
-            return '/admin';
+            return '/dashboard';
         }
         return '/';
     }

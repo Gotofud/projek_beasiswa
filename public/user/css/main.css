@@ -35393,12 +35393,12 @@ li.setup-process-item:not(:last-child):before {
 }
 
 .cyber-about-img img {
-    border-radius: 10px
+    border-radius: 30px
 }
 
 .sheild-img img {
-    border: 20px solid #fff;
-    border-radius: 10px;
+    border: 20px solid #fafafa;
+    border-radius: 40px;
     margin-top: -140px;
     margin-left: -30px
 }
@@ -35407,7 +35407,7 @@ li.setup-process-item:not(:last-child):before {
     -webkit-box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, .25);
     box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, .25);
     border-right: 10px solid var(--bs-primary);
-    border-radius: 10px
+    border-radius: 20px
 }
 
 .cyber-about-box {
@@ -35649,7 +35649,7 @@ li.setup-process-item:not(:last-child):before {
 }
 
 .cyber-faq-img img {
-    border-radius: 10px
+    border-radius: 20px
 }
 
 @media(min-width: 767px)and (max-width: 992px) {

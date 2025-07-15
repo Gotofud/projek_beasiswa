@@ -15,7 +15,7 @@ return new class extends Migration {
             $table->foreignId('id_pendaftaran')->constrained('pendaftarans')->onDelete('cascade');
             $table->float('nilai_total');
             $table->enum('status_kelulusan', ['lulus', 'tidak lulus']);
-            $table->date('tanggal_pengumuman');
+            $table->date('tanggal_penilaian');
             $table->foreignId('reviewer')->constrained('users')->onDelete('cascade');
             $table->timestamps();
         });

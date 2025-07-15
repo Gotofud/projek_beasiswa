@@ -34,14 +34,15 @@ class ManagePeserta extends Controller
         return $pdf->download('Data-peserta.pdf'); // Langsung download
     }
 
-    public function biodataPDF()
+    public function biodataPDF($id)
     {
-        $peserta = Peserta::with('user')->first();
+        $peserta = Peserta::with('user')->findOrFail($id);
 
         $pdf = Pdf::loadView('pdf.biodata', compact('peserta'));
 
-        return $pdf->download('Biodata-Peserta.pdf'); // Langsung download
+        return $pdf->download('Biodata-Peserta-' . $peserta->nama_lengkap . '.pdf');
     }
+
 
     /**
      * Show the form for creating a new resource.

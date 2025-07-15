@@ -57,7 +57,7 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <a href="{{ route('admin.peserta.biodataPDF') }}" type="button"
+                <a href="{{ route('admin.peserta.biodataPDF',$data->id) }}" type="button"
                     class="btn btn-danger btn-md text-white "><i class=" ti ti-file-text"></i>
                     Export PDF</a>
             </div>
