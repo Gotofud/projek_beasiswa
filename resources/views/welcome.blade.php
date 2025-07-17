@@ -33,8 +33,6 @@
                         </div>
                         <img src="{{ asset('user/img/people-bg.png') }}" alt="not found"
                             class="img-fluid mt-5 position-relative">
-
-                        @include('layouts.user.modal.status')
                     </div>
                 </div>
             </div>

@@ -46,7 +46,7 @@
                 <div class="action">
                     <a type="button" class="btn btn-primary btn-md text-white" data-bs-toggle="modal"
                         data-bs-target="#add"><i class=" ti ti-folder-plus"></i></a>
-                    <a href="#" type="button" class="btn btn-success btn-md text-white "><i
+                    <a href="{{ route('admin.penilaian.export') }}" type="button" class="btn btn-success btn-md text-white "><i
                             class=" ti ti-file-spreadsheet"></i>
                         Export Excel</a>
                     <a href="{{ route('admin.penilaian.exportPDF') }}" type="button" class="btn btn-danger btn-md text-white "><i class=" ti ti-file-text"></i>
@@ -73,6 +73,7 @@
                             <th>Universitas</th>
                             <th>Program Studi</th>
                             <th>Status</th>
+                            <th>Reviewer</th>
                             <th>Action</th>
                         </tr>
                         <!-- end row -->
@@ -101,6 +102,7 @@
                                 <span class="badge bg-danger">TIDAK LULUS</span>
                                 @endiF
                             </td>
+                            <td>{{ $data->user->name }}</td>
                             <td>
                                 <form action="{{ route('admin.dokumen.destroy', $data->id) }}" method="POST">
                                     @csrf

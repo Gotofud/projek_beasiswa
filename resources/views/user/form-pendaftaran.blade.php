@@ -32,10 +32,10 @@
     <meta name="author" content="ThemeTags">
 
     <!--favicon icon-->
-    <link rel="icon" href="{{ asset('user/img/favicon.png') }}" type="image/png" sizes="16x16">
+    <link rel="icon" href="user/img/icon.png" type="image/png" sizes="16x16">
 
     <!--title-->
-    <title>Register - Software & IT Solutions HTML Template</title>
+    <title>Pendaftaran - Laskar</title>
 
     <!-- Font -->
     <link
@@ -80,54 +80,49 @@
                         <div class="pricing-content-wrap bg-custom-light rounded-custom shadow-lg">
                             <div
                                 class="price-feature-col pricing-feature-info text-white left-radius p-5 order-1 order-lg-0">
-                                <a href="index.html" class="mb-5 d-none d-xl-block d-lg-block"><img
+                                <a href="#" class="mb-5 d-none d-xl-block d-lg-block"><img
                                         src="user/img/logo-white.png" alt="logo" class="img-fluid"></a>
                                 <div class="customer-testimonial-wrap mt-60">
                                     <div class="tab-content" id="nav-tabContent">
                                         <div class="tab-pane fade show active" id="testimonial-tab-1" role="tabpanel">
                                             <div class="testimonial-tab-content mb-4">
                                                 <blockquote>
-                                                    <h5>The Best Template You Got to Have it!</h5>
-                                                    Globally network long-term high-impact schemas vis-a-vis distinctive
-                                                    e-commerce
-                                                    cross-media infrastructures rather than ethical sticky alignments
-                                                    rather
-                                                    than global.
+                                                    <h5>Laskar Sangat membantu!</h5>
+                                                    "LASKAR benar-benar membuka jalan saya untuk kuliah di PTN impian.
+                                                    Proses pendaftaran mudah, informatif, dan saya bisa memantau seleksi
+                                                    langsung dari akun saya. Terima kasih LASKAR!"
                                                 </blockquote>
                                                 <div class="author-info mt-4">
-                                                    <h6 class="mb-0">Joe Richard</h6>
-                                                    <span>Visual Designer</span>
+                                                    <h6 class="mb-0">Sulis Alisa Putri</h6>
+                                                    <span>Mahasiswi</span>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="tab-pane fade" id="testimonial-tab-2" role="tabpanel">
                                             <div class="testimonial-tab-content mb-4">
                                                 <blockquote>
-                                                    <h5>Amazing Quiety template!</h5>
-                                                    Distinctively engineer client-centered information and cooperative
-                                                    core
-                                                    competencies. Progressively customize client-centered repurpose
-                                                    viral
-                                                    e-services whereas before 24/7 total linkage.
+                                                    <h5>Mudah Digunakan!</h5>
+                                                    "Website LASKAR sangat mudah digunakan. Mulai dari daftar sampai
+                                                    pengumuman hasil seleksi, semuanya terpantau jelas. Terima kasih
+                                                    LASKAR sudah jadi jembatan saya menuju PTN impian."
                                                 </blockquote>
                                                 <div class="author-info mt-4">
-                                                    <h6 class="mb-0">Oberoi R.</h6>
-                                                    <span class="small">CEO at Herbs</span>
+                                                    <h6 class="mb-0">Reza Kecap</h6>
+                                                    <span class="small">Mahasigma UGM</span>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="tab-pane fade" id="testimonial-tab-3" role="tabpanel">
                                             <div class="testimonial-tab-content mb-4">
                                                 <blockquote>
-                                                    <h5>Embarrassed by the First Version!</h5>
-                                                    Efficiently whiteboard cross-unit meta-services after bleeding-edge
-                                                    deliverables. Quickly transition standardized schemas via leveraged
-                                                    users. Assertively actualize mission-critical supply chains through
-                                                    .
+                                                    <h5>Jelas Dan Terarah!</h5>
+                                                    "Saya sempat ragu daftar beasiswa karena prosesnya rumit. Tapi lewat
+                                                    website LASKAR, semua jadi lebih jelas dan terarah. Alhamdulillah
+                                                    sekarang saya diterima di universitas negeri berkat LASKAR."
                                                 </blockquote>
                                                 <div class="author-info mt-4">
-                                                    <h6 class="mb-0">Joan Dho</h6>
-                                                    <span class="small">Founder and CTO</span>
+                                                    <h6 class="mb-0">Taiki Inomata</h6>
+                                                    <span class="small">Mahasiswa IPB</span>
                                                 </div>
                                             </div>
                                         </div>

@@ -3,7 +3,8 @@
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="staticBackdropLabel"><i class="ti ti-category"></i> Tambah Program Studi</h1>
+                <h1 class="modal-title fs-5" id="staticBackdropLabel"><i class="ti ti-category"></i> Tambah Program
+                    Studi</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -12,8 +13,13 @@
                     @csrf
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="basic-addon1"><i class="ti ti-folder"></i></span>
-                        <input type="text" class="form-control" placeholder="Nama Prodi" aria-label="Username"
-                            aria-describedby="basic-addon1" name="nama">
+                        <input type="text" class="form-control @error('nama') is-invalid @enderror" placeholder="Nama Prodi" aria-label="Username"
+                            aria-describedby="basic-addon1" name="nama" >
+                        @error('nama')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
                     </div>
             </div>
             <div class="modal-footer">

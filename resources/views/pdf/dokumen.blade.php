@@ -104,6 +104,7 @@
                 <th>Nama Lengkap</th>
                 <th>Jalur</th>
                 <th>Status</th>
+                <th>Reviewer</th>
             </tr>
             <!-- end row -->
         </thead>
@@ -115,6 +116,7 @@
                     <td>{{ $data->kode_seleksi }}</td>
                     <td>{{ $data->peserta->nama_lengkap }}</td>
                     <td>{{ $data->jalur }}</td>
+                    <td>{{ $data->user->name }}</td>
                     <td>
                         @if ($data->status == 'diterima')
                             <span class="badge-success">DI TERIMA</span>

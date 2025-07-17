@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\SeleksiPesertaExport;
 use App\Models\Pendaftaran;
 use App\Models\Seleksi;
 use App\Models\Universitas;
@@ -28,7 +29,7 @@ class PenilaianController extends Controller
 
     public function export()
     {
-        return Excel::download(new ReviewerExport, 'Data-Reviewer.xlsx');
+        return Excel::download(new SeleksiPesertaExport, 'Data-Seleksi.xlsx');
     }
 
     public function exportPDF()

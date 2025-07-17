@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\PesertaExport;
 use App\Models\Peserta;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -22,7 +23,7 @@ class ManagePeserta extends Controller
 
     public function export()
     {
-        return Excel::download(new ReviewerExport, 'Data-Reviewer.xlsx');
+        return Excel::download(new PesertaExport, 'Data-Peserta.xlsx');
     }
 
     public function exportPDF()

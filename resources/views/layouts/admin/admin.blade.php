@@ -46,6 +46,16 @@
         showConfirmButton: false
       });
       </script>
+    @elseif(count($errors) > 0)
+      <script>
+          Swal.fire({
+        icon: 'success',
+        title: 'Berhasil!',
+        text: '{{ session('success') }}',
+        timer: 3000,
+        showConfirmButton: false
+      });
+      </script>
     @endif
       <div class="body-wrapper">
         <div class="container-fluid">
@@ -75,7 +85,7 @@
     <script src="{{ asset('admin-asset/libs/select2/dist/js/select2.full.min.js') }}"></script>
     <script src="{{ asset('admin-asset/libs/select2/dist/js/select2.min.js') }}"></script>
     <script src="{{ asset('admin-asset/js/forms/select2.init.js') }}"></script>
-  
+
     @stack('scripts')
 </body>
 

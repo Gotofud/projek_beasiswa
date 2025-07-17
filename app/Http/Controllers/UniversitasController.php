@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\UniversitasExport;
 use App\Models\Kota;
+use App\Models\Pendaftaran;
 use App\Models\Prodi;
 use App\Models\Provinsi;
 use App\Models\Universitas;
@@ -31,7 +33,7 @@ class UniversitasController extends Controller
 
     public function export()
     {
-        return Excel::download(new ReviewerExport, 'Data-Reviewer.xlsx');
+        return Excel::download(new UniversitasExport, 'Data-Universitas.xlsx');
     }
 
     public function exportPDF()
@@ -57,6 +59,16 @@ class UniversitasController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request, [
+            'nama' => 'required',
+            'kota_id' => 'required',
+            'provinsi_id' => 'required',
+            'kode_prodi' => 'required',
+            'prodi_id' => 'required',
+            'minimal_nilai_utbk' => 'required',
+            'minimal_nilai_snbp' => 'required'
+        ]);
+
         $uni = new Universitas();
         $uni->nama = $request->nama;
         $uni->kota_id = $request->kota_id;
@@ -91,21 +103,21 @@ class UniversitasController extends Controller
      */
     public function update(Request $request, Universitas $uni)
     {
-        if ($request->filled('kode_prodi')) {
-            $request->validate([
-                'kode_code' => ['string', 'confirmed'],
-            ]);
-        }
-        $lastRecord = Universitas::latest('id')->first();
-        $lastId = $lastRecord ? $lastRecord->id : 0;
-        $kode_prodi = 'PRDC-' . str_pad($lastId + 1, 4, '0', STR_PAD_LEFT);
-
-        $uni->kode_prodi = $kode_prodi;
+        $this->validate($request, [
+            'nama' => 'required',
+            'kota_id' => 'required',
+            'provinsi_id' => 'required',
+            'kode_prodi' => 'required',
+            'prodi_id' => 'required',
+            'minimal_nilai_utbk' => 'required',
+            'minimal_nilai_snbp' => 'required'
+        ]);
 
         $uni->nama = $request->nama;
         $uni->kota = $request->kota;
         $uni->provinsi = $request->provinsi;
         $uni->prodi_id = $request->prodi_id;
+        $uni->kode_prodi = $request->kode_prodi;
         $uni->minimal_nilai_utbk = $request->minimal_nilai_utbk;
         $uni->minimal_nilai_snbp = $request->minimal_nilai_snbp;
         $uni->save();
@@ -117,8 +129,9 @@ class UniversitasController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Universitas $universitas)
+    public function destroy($id)
     {
+        $universitas = Universitas::findOrFail($id);
         $universitas->delete();
         return redirect()->route('admin.universitas.index')->with('success', 'Data Universitas berhasil di hapus');
     }

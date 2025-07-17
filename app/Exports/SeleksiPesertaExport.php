@@ -2,52 +2,55 @@
 
 namespace App\Exports;
 
-use App\Models\User;
-use Maatwebsite\Excel\Concerns\FromCollection;
+use App\Models\Seleksi;
 use Maatwebsite\Excel\Concerns\WithHeadings;
 use Maatwebsite\Excel\Concerns\WithEvents;
-use Maatwebsite\Excel\Concerns\WithTitle;
 use Maatwebsite\Excel\Events\AfterSheet;
 use PhpOffice\PhpSpreadsheet\Style\Fill;
 use PhpOffice\PhpSpreadsheet\Style\Alignment;
 use PhpOffice\PhpSpreadsheet\Style\Border;
+use Maatwebsite\Excel\Concerns\FromCollection;
 
-class ReviewerExport implements FromCollection, WithHeadings, WithEvents, WithTitle
+class SeleksiPesertaExport implements FromCollection, WithHeadings, WithEvents
 {
+    /**
+     * @return \Illuminate\Support\Collection
+     */
     public function collection()
     {
-        return User::where('role', 'reviewer')->get()->map(function ($item) {
+        return Seleksi::all()->map(function ($item) {
             return [
-                'name' => $item->name,
-                'email' => $item->email,
-                'role' => ucfirst($item->role),
+                'id_pendaftaran' => $item->id_pendaftaran,
+                'nilai_total' => $item->nilai_total,
+                'status_kelulusan' => $item->status_kelulusan,
+                'tgl_penilaian' => $item->tgl_penilaian,
+                'reviewer' => $item->user->name,
             ];
         });
     }
-
-    public function headings(): array
+     public function headings(): array
     {
-        return ['Name', 'Email', 'Role'];
-    }
-
-    public function title(): string
-    {
-        return 'Reviewer Report';
+        return ['Id Pendaftaran', 'Nilai Total', 'Status', 'Tanggal Penilaian', 'Reviewer'];
     }
 
     public function registerEvents(): array
     {
         return [
-            AfterSheet::class => function(AfterSheet $event) {
-                // Header styling
-                $event->sheet->getDelegate()->getStyle('A1:C1')->applyFromArray([
+            AfterSheet::class => function (AfterSheet $event) {
+                $lastColumn = $event->sheet->getHighestColumn();
+                $lastRow = $event->sheet->getHighestRow();
+
+                // Style heading
+                $event->sheet->getDelegate()->getStyle("A1:{$lastColumn}1")->applyFromArray([
                     'font' => [
                         'bold' => true,
-                        'color' => ['argb' => 'FFFFFFFF'],
+                        'color' => ['rgb' => 'FFFFFF'],
                     ],
                     'fill' => [
                         'fillType' => Fill::FILL_SOLID,
-                        'startColor' => ['rgb' => '0D1B39'],
+                        'startColor' => [
+                            'rgb' => '0D1B39', // warna biru gelap
+                        ],
                     ],
                     'alignment' => [
                         'horizontal' => Alignment::HORIZONTAL_CENTER,
@@ -55,10 +58,7 @@ class ReviewerExport implements FromCollection, WithHeadings, WithEvents, WithTi
                     ],
                 ]);
 
-                // Border & auto size
-                $lastColumn = $event->sheet->getHighestColumn();
-                $lastRow = $event->sheet->getHighestRow();
-
+                // Border seluruh tabel
                 $event->sheet->getDelegate()->getStyle("A1:{$lastColumn}{$lastRow}")->applyFromArray([
                     'borders' => [
                         'allBorders' => [
@@ -68,6 +68,7 @@ class ReviewerExport implements FromCollection, WithHeadings, WithEvents, WithTi
                     ],
                 ]);
 
+                // Auto size kolom
                 foreach (range('A', $lastColumn) as $col) {
                     $event->sheet->getDelegate()->getColumnDimension($col)->setAutoSize(true);
                 }

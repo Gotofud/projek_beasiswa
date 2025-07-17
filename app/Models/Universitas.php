@@ -8,7 +8,7 @@ use App\Models\Prodi;
 class Universitas extends Model
 {
     protected $fillable = [
-        'ptn',
+        'nama',
         'kota_id',
         'provinsi_id',
         'prodi_id',

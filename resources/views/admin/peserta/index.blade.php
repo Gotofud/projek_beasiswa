@@ -42,7 +42,7 @@
                     </div>
 
                     <div class="action">
-                        <a href="#" type="button" class="btn btn-success btn-md text-white "><i
+                        <a href="{{ route('admin.peserta.export') }}" type="button" class="btn btn-success btn-md text-white "><i
                                 class=" ti ti-file-spreadsheet"></i>
                             Export Excel</a>
                         <a href="{{ route('admin.peserta.exportPDF') }}" type="button" class="btn btn-danger btn-md text-white "><i class=" ti ti-file-text"></i>

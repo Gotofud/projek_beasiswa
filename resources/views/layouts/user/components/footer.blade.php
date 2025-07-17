@@ -24,41 +24,6 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-12 col-lg-7 mt-4 mt-md-0 mt-lg-0">
-                    <div class="row">
-                        <div class="col-md-4 col-lg-4 mt-4 mt-md-0 mt-lg-0">
-                            <div class="footer-single-col">
-                                <h3>Primary Pages</h3>
-                                <ul class="list-unstyled footer-nav-list mb-lg-0">
-                                    <li><a href="index.html" class="text-decoration-none">Home</a></li>
-                                    <li><a href="about-us.html" class="text-decoration-none">About Us</a></li>
-                                    <li><a href="services.html" class="text-decoration-none">Services</a></li>
-                                    <li><a href="career.html" class="text-decoration-none">Career</a></li>
-                                    <li><a href="integrations.html" class="text-decoration-none">Integrations</a>
-                                    </li>
-                                    <li><a href="integration-single.html" class="text-decoration-none">Integration
-                                            Single</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-md-4 col-lg-4 mt-4 mt-md-0 mt-lg-0">
-                            <div class="footer-single-col">
-                                <h3>Pages</h3>
-                                <ul class="list-unstyled footer-nav-list mb-lg-0">
-                                    <li><a href="pricing.html" class="text-decoration-none">Pricing</a></li>
-                                    <li><a href="blog.html" class="text-decoration-none">Blog</a></li>
-                                    <li><a href="blog-single.html" class="text-decoration-none">Blog Details</a></li>
-                                    <li><a href="contact-us.html" class="text-decoration-none">Contact</a></li>
-                                    <li><a href="career-single.html" class="text-decoration-none">Career Single</a>
-                                    </li>
-                                    <li><a href="service-single.html" class="text-decoration-none">Services
-                                            Single</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
             </div>
         </div>
     </div>

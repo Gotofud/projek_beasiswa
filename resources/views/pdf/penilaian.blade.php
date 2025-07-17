@@ -97,6 +97,7 @@
                 <th>Universitas</th>
                 <th>Program Studi</th>
                 <th>Status</th>
+                <th>Reviewer</th>
             </tr>
             <!-- end row -->
         </thead>
@@ -111,6 +112,7 @@
                 <td>{{ $data->nilai_total }}</td>
                 <td>{{ $data->pendaftaran->ptn->nama }}</td>
                 <td>{{ $data->pendaftaran->ptn->prodi->nama }}</td>
+                <td>{{ $data->user->name }}</td>
                 <td>
                     @if ($data->status_kelulusan === 'lulus')
                         <span class="badge-success">LULUS</span>

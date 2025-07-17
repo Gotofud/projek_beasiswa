@@ -92,6 +92,11 @@
                                             <input type="email" class="form-control" placeholder="Email" id="email"
                                                 required aria-label="email" name="email">
                                         </div>
+                                        @error('email')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
                                     </div>
                                     <div class="col-sm-12">
                                         <label for="password" class="mb-1">Password <span
@@ -100,6 +105,11 @@
                                             <input type="password" class="form-control" placeholder="Password"
                                                 id="password" required aria-label="Password" name="password">
                                         </div>
+                                        @error('password')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
                                     </div>
                                     <div class="col-12">
                                         <button type="submit" class="btn btn-primary mt-3 d-block w-100">Submit</button>

@@ -39,7 +39,7 @@
                     </div>
 
                     <div class="action">
-                        <a href="#" type="button" class="btn btn-success btn-md text-white "><i
+                        <a href="{{ route('admin.dokumen.export') }}" type="button" class="btn btn-success btn-md text-white "><i
                                 class=" ti ti-file-spreadsheet"></i>
                             Export Excel</a>
                         <a href="{{ route('admin.dokumen.exportPDF') }}" type="button" class="btn btn-danger btn-md text-white "><i class=" ti ti-file-text"></i>
@@ -65,6 +65,7 @@
                                 <th>Jalur</th>
                                 <th>Biodata</th>
                                 <th>Dokumen</th>
+                                <th>Reviewer</th>
                                 <th>Action</th>
                             </tr>
                             <!-- end row -->
@@ -91,6 +92,7 @@
                                             Cek Dokumen
                                         </a>
                                     </td>
+                                    <td>{{ $data->user->name }}</td>
                                     <td>
                                         <form action="{{ route('admin.dokumen.destroy', $data->id) }}" method="POST">
                                             <a type="button" class="btn btn-warning" data-bs-toggle="modal"

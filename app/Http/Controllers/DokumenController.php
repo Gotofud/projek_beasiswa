@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\PendaftaranExport;
 use App\Models\Pendaftaran;
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade\Pdf;
@@ -20,7 +21,7 @@ class DokumenController extends Controller
 
     public function export()
     {
-        return Excel::download(new ReviewerExport, 'Data-Reviewer.xlsx');
+        return Excel::download(new PendaftaranExport, 'Data-Pendaftaran.xlsx');
     }
 
     public function exportPDF()
